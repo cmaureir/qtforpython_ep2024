@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>QtWS23 - Language bindings</title>
+
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="css/qt-theme.css">
+  <link rel="stylesheet" href="css/qt.css">
+  <link rel="stylesheet" href="css/extras.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+  <!-- Printing and PDF exports -->
+  <script>
+  if( window.location.search.match( /print-pdf/gi ) ) {
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'reveal.js/css/print/pdf.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  }
+  </script>
+</head>
+<!-- CONTENT -->
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section data-background-image="img/qtws_back1.png">
+  <div id="left70">
+    <h3>The role of C++ in the Python ecosystem: <span style="font-weight: normal;">the case of the Qt framework.</span></h3>
+    <hr class="qt-line"/>
+  <p class="x80">
+    Dr. <i class="qt-lemon">Cristián</i> Maureira-Fredes<br>
+    <span class="qt-neon">@cmaureir</span><br/>
+    <img class="clean-img" src="img/mastodon.png">
+    <img class="clean-img" src="img/github_white.png">
+    <img class="clean-img" src="img/linkedin.png">
+    <img class="clean-img" src="img/twitter.png">
+  </p>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Python Extensions</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Rust or C++?</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Rust is an amazing language</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>The world runs on C++</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>C++ has the fame to be a difficult language</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>but like Python it can be a simple and a complicated language</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>C++ and Python</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Qt story</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>PyQt and PySide</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>PySide's extra mile</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>API</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Tooling</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Features</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Binding generation</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Technical details</h2>
+  <h3>Build system</h3>
+  <h3>Packaging</h3>
+  <h3>Limited API</h3>
+  <h3>PyPy</h3>
+  <h3>arm64</h3>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Example: C++ to Python</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Example: Python app (widgets)</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Example: Python app (QML)</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>Example: Python and C++</h2>
+</section>
+
+
+<!-- OLD -->
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">Motivation</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  Let's start with a <i class="qt-neon">simple</i> question.
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">What is the <i class="qt-neon">best</i></h2>
+  <h2 class="r-fit-text">programming language?</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  Maybe a better question...
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">What is the <i class="qt-neon">most popular*</i></h2>
+  <h2 class="r-fit-text">programming language?</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <img src="img/tiobe_2023-10.png" />
+  <p style="font-size: 50%;">Source <a href="https://www.tiobe.com/tiobe-index/">TIOBE index October 2023</a></p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <img src="img/so_languages_all2023.png" />
+  <p style="font-size: 50%;">Most Popular technologies - Source <a href="https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages">StackOverflow Survey 2023</a></p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <img src="img/so_languages2023.png" />
+  <p style="font-size: 50%;">Admired and Desired Programming languages - Source <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages">StackOverflow Survey 2023</a></p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">What about</h2>
+  <h2 class="r-fit-text"><i class="qt-neon">UI</i> frameworks?</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <img src="img/so_frameworks_all2023.png" />
+  <p style="font-size: 50%;">Most popular Frameworks - Source <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-other-frameworks-and-libraries">StackOverflow Survey 2023</a></p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <img src="img/so_frameworks2023.png" />
+  <p style="font-size: 50%;">Admired and Desired Frameworks - Source <a href="https://survey.stackoverflow.co/2023/#section-most-popular-technologies-other-frameworks-and-libraries">StackOverflow Survey 2023</a></p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <img src="img/tauri_intro.png" />
+  <p style="font-size: 50%;">Source <a href="https://tauri.app/about/intro">Tauri Intro</a></p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">The current language state</h2>
+  <h2 class="r-fit-text">of the <i class="qt-neon">Qt</i> Project</h2>
+</section>
+
+<section data-transition="fade-in fade-out" data-auto-animate>
+  <h2>Languages in Qt</h2>
+  <div class="r-hstack justify-center">
+    <div class="fragment">1996<br><img style="width: 50%;"src="img/cpp_logo.svg"/></div>
+    <div class="fragment">2010<br><img style="width: 60%;"src="img/qml_logo.png"/></div>
+    <div class="fragment">2011 (2018)*<br><img style="width: 50%;"src="img/python.svg"/></div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">What about <i class="qt-neon">other</i></h2>
+  <h2 class="r-fit-text">languages?</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <table style="font-size: 48%;">
+    <thead>
+      <tr>
+        <th class="head">Name</th>
+        <th class="head">Language</th>
+        <th class="head">Latest version</th>
+        <th class="head">Last commit</th>
+        <th class="head">License</th>
+        <th class="head">Company</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fragment" data-fragment-index="1">
+        <td><a href="https://pyside.org">PySide</a></td>
+        <td>Python</td>
+        <td>6.6.0</td>
+        <td>-</td>
+        <td>LGPLv3/Commercial</td>
+        <td>The Qt Company</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="1">
+        <td><a href="https://riverbankcomputing.com/software/pyqt/">PyQt</a></td>
+        <td>Python</td>
+        <td>6.6.0</td>
+        <td>-</td>
+        <td>GPLv3/Commercial</td>
+        <td>Riverbank Computing</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="2">
+        <td><a href="https://github.com/KDAB/cxx-qt">CXX-Qt</a></td>
+        <td>Rust</td>
+        <td>6.x*</td>
+        <td>-</td>
+        <td>MIT/Apache 2.0</td>
+        <td>KDAB</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="2">
+        <td><a href="https://github.com/woboq/qmetaobject-rs/">qmetaobject-rs</a></td>
+        <td>Rust</td>
+        <td>6.5.0</td>
+        <td>2023.11.03</td>
+        <td>MIT</td>
+        <td>Woboq</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="3">
+        <td><a href="https://github.com/OmixVisualization/qtjambi">QtJambi</a></td>
+        <td>Java/Kotlin</td>
+        <td>6.6.0</td>
+        <td>2023.10.17</td>
+        <td>LGPLv2</td>
+        <td>Omix Visualization</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="4">
+        <td><a href="https://github.com/kassane/qml_zig">QML-zig</a></td>
+        <td>Zig</td>
+        <td>5.15</td>
+        <td>2023.08.17</td>
+        <td>Apache 2.0</td>
+        <td>-</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="5">
+        <td><a href="https://github.com/JuliaGraphics/QML.jl">QML.jl</a></td>
+        <td>Julia</td>
+        <td>6.5.2</td>
+        <td>2023.10.16</td>
+        <td>MIT</td>
+        <td>JuliaGraphs</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="6">
+        <td><a href="https://ring-lang.github.io/doc1.17/qt.html">RingQt</a></td>
+        <td>Ring</td>
+        <td>5.15.15</td>
+        <td>2023.09.27</td>
+        <td>MIT</td>
+        <td>-</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="6">
+        <td><a href="https://docs.nodegui.org/">NodeGui</a></td>
+        <td>Node.js</td>
+        <td>6.4.1</td>
+        <td>2023.08.28</td>
+        <td>MIT</td>
+        <td>NodeGui</td>
+      </tr>
+      <tr class="fragment" data-fragment-index="6">
+        <td><a href="https://github.com/jerous86/nimqt">nimqt</a></td>
+        <td>Nim</td>
+        <td>6.4.3</td>
+        <td>2023.08.22</td>
+        <td>GPL2</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 40%;">(updated on Nov 6th, 2023)</p>
+  <p style="font-size: 55%;">
+  Other 26 projects (some inactive) in <a href="https://wiki.qt.io/Language_Bindings">wiki.qt.io/Language_Bindings</a>
+  </p>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back3.png">
+  <h3>This is nothing new</h3>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back3.png">
+  <div id="left">
+  <img src="img/qt_roadmap2023.jpg"/>
+  <p>Yesterday's talk</p>
+  </div>
+  <div id="right">
+    <h4 style="margin-top: 20%;"><i class="qt-neon">Qt Roadmap</i></h4>
+  <p style="font-size: 60%;">
+    Volker &amp; Maurice<br>
+    (QtWS23)
+  </p>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>What is the <i class="qt-neon">motivation</i>?</h2>
+  <ul>
+    <li class="fragment">The need of GUI frameworks</li>
+    <li class="fragment">C++ flexibility for bindings</li>
+    <li class="fragment">Language showcase</li>
+    <li class="fragment">Qt's popularity ⭐</li>
+  </ul>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>How is it done? (1/2)</h2>
+  <img src="img/bindings.png"/>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>How is it done? (2/2)</h2>
+  <img src="img/rewrite.png"/>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">What <i class="qt-neon">other languages</i></h2>
+  <h2 class="r-fit-text">bring to the table</h2>
+</section>
+
+<section class="slide-blue" data-transition="fade-in fade-out">
+  <img style="width: 50%;"src="img/python.svg"/>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_python.png">
+  <h3>Python's syntax</h3>
+    <div id="left">
+      <pre style="font-size: 30%;"><code class="c++" data-trim data-noescape>
+        #ifndef MAINWINDOW_H
+        #define MAINWINDOW_H
+
+        #include &lt;QMainWindow&gt;
+        #include &lt;QPushButton&gt;
+
+        class MainWindow : public QMainWindow
+        {
+            Q_OBJECT
+            public:
+                MainWindow(QWidget *parent = nullptr);
+            private slots:
+                void handleButton();
+            private:
+                QPushButton *m_button;
+        };
+
+        #endif // MAINWINDOW_H</code></pre>
+      <pre style="font-size: 30%;"><code class="c++" data-trim data-noescape>
+        #include "mainwindow.h"
+
+        MainWindow::MainWindow(QWidget *parent)
+           : QMainWindow(parent)
+        {
+            m_button = new QPushButton("My Button", this);
+            connect(m_button, SIGNAL(clicked()), this,
+              SLOT(handleButton()));
+        }
+
+        void MainWindow::handleButton()
+        {
+            m_button-&gt;setText("Ready");
+        }</code></pre>
+      <pre style="font-size: 30%;"><code class="c++" data-trim data-noescape>
+        #include &lt;QApplication&gt;
+        #include "mainwindow.h"
+
+        int main(int argc, char *argv[])
+        {
+            QApplication app(argc, argv);
+            MainWindow mainWindow;
+            mainWindow.show();
+            return app.exec(d);
+        }</code></pre>
+    </div>
+    <div id="rightl">
+      <pre class="fragment" style="font-size: 30%;"><code class="python" data-trim data-noescape>
+        import sys
+        from PySide6.QtCore import Slot
+        from PySide6.QtWidgets import (
+          QApplication, QMainWindow, QPushButton
+        )
+
+        class MainWindow(QMainWindow):
+            def __init__(self, parent=None):
+                QMainWindow.__init__(self, parent)
+                self.b = QPushButton("My Button", self)
+                self.b.clicked.connect(self.handle_button)
+
+            @Slot()
+            def handle_button(self):
+                self.b.setText("Ready")
+
+        if __name__ == "__main__":
+            app = QApplication(sys.argv)
+            mainWindow = MainWindow()
+            mainWindow.show()
+            sys.exit(app.exec())</code></pre>
+    </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_python.png">
+  <h3>Python's heterogeneity</h3>
+  <div class="r-hstack justify-center">
+    <div class="fragment" style="width: 80%;">
+      <i class="qt-violet">Web Development</i><br/>
+      <img src="img/django.png" />
+      <img src="img/fastapi.png" />
+    </div>
+    <div class="fragment" style="width: 80%;">
+      <i class="qt-violet">Data<br/>Science</i><br/>
+      <img src="img/pytorch.png" style="width: 80%;"/>
+      <img src="img/tensorflow.png" style="width: 60%;"/>
+    </div>
+    <div class="fragment" style="width: 80%;">
+      <i class="qt-violet">Embedded systems</i><br/>
+      <img src="img/micropython.png" style="width: 40%;"/><br/>
+      <img src="img/circuitpython.png" style="width: 43%;" />
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_python.png">
+  <h3>Python: package distribution</h3>
+  <img style="width: 70%; background: 0; border: 0;" src="img/qtforpython_install.svg" />
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_python.png">
+  <h2>qtpip</h2>
+  <img style="width: 70%; background: 0; border: 0;" src="img/qtforpython_commercial_install.svg" />
+  <p style="font-size: 60%;">
+    <a href="https://www.qt.io/blog/qtpip-qtforpython-installer">qt.io/blog/qtpip-qtforpython-installer</a>
+  </p>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_python.png">
+  <h3>More Qt for Python</h3>
+  <ul style="font-size: 80%;">
+    <li>Wiki page <a href="https://pyside.org">pyside.org</a></li>
+    <li>📚 Official docs <a href="https://doc.qt.io/qtforpython">doc.qt.io/qtforpython</a></li>
+    <li>🤝 Community at <a href="https://wiki.qt.io/Qt_for_Python#Community">wiki.qt.io/Qt_for_Python#Community</a></li>
+    <li>📺 Talks at <a href="https://doc.qt.io/qtforpython-6/videos.html">doc.qt.io/qtforpython-6/videos.html</a></li>
+  </ul>
+
+</section>
+
+<section class="slide-red" data-transition="fade-in fade-out">
+  <img style="width: 50%;"src="img/rust_logo.svg"/>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h3>Rust</h3>
+  <div id="left">
+    <ul style="font-size: 90%;">
+      <li class="fragment">Performance
+        <ul style="font-size: 70%;">
+          <li>Fast and memory efficient (no runtime or GC).</li>
+        </ul>
+      </li>
+      <li class="fragment">Reliability
+        <ul style="font-size: 70%;">
+          <li>Rich type system and ownership model (mem and thread safety)</li>
+        </ul>
+      </li>
+      <li class="fragment">Productivity
+        <ul style="font-size: 70%;">
+          <li>Docs, friendly compiler, package manager and build tool.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div id="right">
+    <pre style="font-size: 50%;width: 80%;"><code class="rust" data-trim data-noescape>
+    fn main() {
+      println!("Hello, world!");
+    }
+    </code></pre>
+    <pre style="font-size: 60%;width: 80%;"><code class="bash" data-trim data-noescape>
+    $ rustc main.rs
+    $ ./main
+    Hello, world!
+    </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h4>Rust and C++ (1/2)</h4>
+  <div id="left">
+    <pre style="font-size: 40%;width: 90%;"><code class="cpp" data-trim data-noescape>
+    #include &lt;iostream&gt;
+
+    using namespace std;
+
+    int main() {
+        int nums[] = {1,2,3,4,5,6};
+        int five = nums[1] + nums[2];
+        cout &lt;&lt; "Result: " &lt;&lt; five";
+    }
+    </code></pre>
+  </div>
+  <div id="left">
+    <pre style="font-size: 40%;width: 90%;"><code class="rust" data-trim data-noescape>
+    fn main() {
+        let arr: [i32; 5] = [1, 2, 3, 4, 5];
+        let five = arr[1] + arr[2];
+        println!("Result: {}", five);
+    }
+    </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h4>Rust and with C++ (2/2)</h4>
+  <div id="left">
+    <pre style="font-size: 40%;width: 90%;"><code class="cpp" data-trim data-noescape>
+    class Person {
+      public:
+        Person(string n, int a);
+        void talk();
+        string name;
+        int age;
+    };
+    Person::Person(string n, int a){
+        name = n;
+        age = a;
+    }
+    void Person::talk(){
+        cout &lt;&lt; name &lt;&lt; " says Hello!\n";
+    }
+
+    int main() {
+        Person maria("Maria", 22);
+        maria.talk();
+    }
+    </code></pre>
+  </div>
+  <div id="right">
+    <pre style="font-size: 40%;width: 90%;"><code class="rust" data-trim data-noescape>
+    // declare a struct
+    struct Person {
+        name: String,
+        age: i32
+    }
+    impl Person {
+        fn speak(&amp;self){
+            println!("{} says Hello!",
+              self.name);
+        }
+    }
+
+    fn main() {
+        let maria = Person{
+          name: String::from("Maria"),
+          age: 5
+        };
+        maria.speak();
+    }
+    </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h3>Side note</h3>
+  <img style="width: 70%;" src="img/rustpython.png" />
+  <p class="fragment" style="font-size: 80%;">Not saying that we should re-write Qt...</p>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h3><i class="blue">CXX-Qt</i> Rust ⇄ C++ bindings</h3>
+  <div id="left">
+    <pre style="font-size: 34%;width: 95%;"><code class="rust" data-trim data-noescape>
+    #[cxx_qt::bridge]
+    pub mod qobject {
+      unsafe extern "C++" {
+        include!("cxx-qt-lib/qstring.h");
+        type QString = cxx_qt_lib::QString;
+      }
+      unsafe extern "RustQt" {
+        #[qobject]
+        #[qml_element]
+        #[qproperty(i32, number)]
+        #[qproperty(QString, string)]
+        type MyObject = super::MyObjectRust;
+      }
+      unsafe extern "RustQt" {
+        #[qinvokable]
+        fn increment_number(self: Pin&lt;&amp;mut MyObject&gt;);
+        #[qinvokable]
+        fn say_hi(self: &amp;MyObject,
+                  string: &amp;QString,
+                  number: i32);
+      }
+    }
+    </code></pre>
+    <p style="font-size: 40%;">Snippet from: <a href="https://github.com/KDAB/cxx-qt/tree/main/examples/qml_minimal">github.com/KDAB/cxx-qt/tree/main/examples/qml_minimal</a></p>
+  </div>
+  <div id="right">
+    <ul style="font-size: 70%;">
+      <li class="fragment"><a href="https://crates.io/crates/cxx">CXX - safe FFI between Rust and C++</a></li>
+      <li class="fragment">Idiomatic C++ and Rust</li>
+      <li class="fragment">Macros → Bindings</li>
+      <li class="fragment">Rust threads → update Qt state</li>
+      <li class="fragment"><i class="red">In development</i></li>
+    </ul>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h3>Rust - Highlights (1/3)</h3>
+  <h4><i class="qt-mandarin">Growing ecosystem</i></h4>
+  <img src="img/crates.png" />
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h3>Rust - Highlights (2/3)</h3>
+  <h4>Tooling (<i class="qt-lemon"><code>cargo</code></i>)</h4>
+  <pre  style="font-size: 50%;width: 90%;"><code class="bash" data-trim data-noescape>
+$ cargo new yourapp
+  Created binary (application) `yourapp` package
+
+$ tree yourapp
+yourapp
+├── Cargo.toml
+└── src
+    └── main.rs
+
+2 directories, 2 files
+  </code></pre>
+  <pre class="fragment" style="font-size: 50%;width: 90%;"><code class="bash" data-trim data-noescape>
+~/yourapp  $ cargo build
+   Compiling yourapp v0.1.0 (/home/cmaureir/yourapp)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.68s
+  </code></pre>
+  <pre class="fragment" style="font-size: 50%;width: 90%;"><code class="bash" data-trim data-noescape>
+~/yourapp  $ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.02s
+     Running `target/debug/yourapp`
+Hello, world!
+  </code></pre>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_rust.png">
+  <h3>Rust - Highlights (3/3)</h3>
+  <div id="left">
+  <ul style="font-size: 80%;">
+    <li class="fragment">Memory management (Ownership &amp; Borrowing)</li>
+    <li class="fragment"><i class="red">Quickly evolving</i></li>
+  </ul>
+  </div>
+  <div class="fragment" id="right">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/cWSh4ZxAr7E?si=RnuxycVrDyThS85g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <p style="font-size: 60%;">
+       Rust Features that I Want in C++ - David Sankel - CppNow 2022
+    </p>
+  </div>
+</section>
+
+
+<section class="slide-black" data-transition="fade-in fade-out">
+  <img style="width: 50%;"src="img/zig_logo.svg"/>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_zig.png">
+  <h3>Zig</h3>
+  <div id="left">
+    <ul style="font-size: 80%;">
+      <li class="fragment">No hidden <i class="qt-mandarin">control flow</i>, nor <i class="qt-mandarin">memory alloc</i></li>
+      <li class="fragment">No preprocessor, no macros</li>
+      <li class="fragment"><i class="qt-mandarin">Metaprogramming</i>: compile-time code execution and lazy evaluation (<code><i class="qt-lemon">comptime</i></code>)</li>
+      <li class="fragment">Tests, test, test!</li>
+    </ul>
+  </div>
+  <div id="right">
+    <pre style="font-size: 34%;width: 90%;"><code class="zig" data-trim data-noescape>
+    // main.zig
+    const std = @import("std");
+
+    pub fn main() !void {
+      const stdout = std.io.getStdOut().writer();
+      try stdout.print("Hello, {s}!\n", .{"world"});
+    }
+    </code></pre>
+    <pre style="font-size: 50%;width: 90%;"><code class="bash" data-trim data-noescape>
+    $ zig build-exe main.zig
+    $ ./hello
+    Hello, world!
+    </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_zig.png">
+  <h3>Zig and C++</h3>
+  <div id="left">
+    <pre style="font-size: 38%;width: 90%;"><code class="cpp" data-trim data-noescape>
+    #include &lt;iostream&gt;
+    using namespace std;
+    class Rectangle {
+      public:
+        float x;
+        float y;
+        Rectangle(float x, float y) :
+          x(x), y(y) {}
+
+        float area() {
+            return x * y;
+        }
+    };
+    int main(int argc, char *argv[]) {
+        Rectangle r = Rectangle(2.2, 3.3);
+        cout &lt;&lt; "Rectangle area: "
+             &lt;&lt; r.area();
+        return 0;
+    }
+    </code></pre>
+  </div>
+  <div id="right">
+    <pre style="font-size: 38%;width: 95%;"><code class="zig" data-trim data-noescape>
+    const std = @import("std");
+    const Rectangle = struct {
+      x: f32,
+      y: f32,
+      pub fn init(x: f32, y: f32) Rectangle {
+        return Rectangle{
+          .x = x, .y = y,
+        };
+      }
+      pub fn area(self: Rectangle) f32 {
+          return self.x * self.y;
+      }
+    };
+    pub fn main() !void {
+      const r = Rectangle.init(2.2, 3.3);
+      const stdout = std.io.getStdOut().writer();
+      try stdout.print("Rectangle area: {}\n",
+        .{r.area()});
+    }
+    </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_zig.png">
+  <h3>Zig - Highlights (1/5)</h3>
+  <h4>Integration with C-libraries <i class="red">without</i> FFI/bindings</h4>
+  <pre style="font-size: 38%;width: 95%;"><code class="zig" data-trim data-noescape>
+const c = @cImport({
+    // See https://github.com/ziglang/zig/issues/515
+    @cDefine("_NO_CRT_STDIO_INLINE", "1");
+    @cInclude("stdio.h");
+});
+pub fn main() void {
+    _ = c.printf("hello\n");
+}
+  </code></pre>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_zig.png">
+  <h3>Zig - Highlights (2/5)</h3>
+  <h4><i class="qt-lemon">comptime</i> and <i class="qt-lemon">test</i></h4>
+  <div id="left">
+  <pre style="font-size: 38%;width: 95%;"><code class="zig" data-trim data-noescape>
+  fn max(comptime T: type, a: T, b: T) T {
+    return if (a &gt; b) a else b;
+  }
+  fn gimmeTheBiggerFloat(a: f32, b: f32) f32 {
+    return max(f32, a, b);
+  }
+  fn gimmeTheBiggerInteger(a: u64, b: u64) u64 {
+    return max(u64, a, b);
+  }
+  </code></pre>
+
+  <pre style="font-size: 38%;width: 95%;"><code class="zig" data-trim data-noescape>
+  // array literal
+  const m = [_]u8{ 'h', 'e', 'l', 'l', 'o' };
+
+  // get the size of an array
+  comptime {
+    assert(m.len == 5);
+  }
+  </code></pre>
+  </div>
+  <div class="fragment" id="right">
+  <pre style="font-size: 45%;width: 95%;"><code class="zig" data-trim data-noescape>
+  const std = @import("std");
+  const expect = std.testing.expect;
+
+  test {
+      const a = {};
+      const b = void{};
+      try expect(@TypeOf(a) == void);
+      try expect(@TypeOf(b) == void);
+      try expect(a == b);
+  }
+  </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_zig.png">
+  <h3>Zig - Highlights (3/5)</h3>
+  <h4>Tools</h4>
+  <pre style="font-size: 38%;width: 95%;"><code class="bash" data-trim data-noescape>
+$ zig init-exe
+info: Created build.zig
+info: Created src/main.zig
+info: Next, try `zig build --help` or `zig build run`
+$ tree
+.
+├── build.zig
+└── src
+    └── main.zig
+
+2 directories, 2 files
+  </code></pre>
+  <pre class="fragment" style="font-size: 38%;width: 95%;"><code class="bash" data-trim data-noescape>
+🥑 ~/yourapp2  % tree zig-out
+zig-out
+└── bin
+    └── yourapp2
+$ zig build run
+All your codebase are belong to us.
+Run `zig build test` to run the tests.
+  </code></pre>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_zig.png">
+  <h3>Zig - Highlights (4/5)</h3>
+  <h4>Cross compilation</h4>
+  </code></pre>
+  <pre class="fragment" style="font-size: 38%;width: 95%;"><code class="bash" data-trim data-noescape>
+$  zig build-exe src/main.zig -target x86_64-windows-gnu
+$  file main.exe
+main.exe: PE32+ executable (console) x86-64, for MS Windows, 7 sections
+  </code></pre>
+
+  <pre class="fragment" style="font-size: 38%;width: 95%;"><code class="bash" data-trim data-noescape>
+$  zig build-exe src/main.zig -target aarch64-linux-musl
+$  file main
+main: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, with debug_info, not stripped
+  </code></pre>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_zig.png">
+  <h3>Zig - Highlights (5/5)</h3>
+  <div id="left">
+  <ul style="font-size: 80%;">
+    <li class="fragment">custom allocators</li>
+    <li class="fragment">Faster and safer than C (*)</li>
+    <li class="fragment"><i class="red">active development</i></li>
+  </ul>
+  </div>
+  <div class="fragment" id="right">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YXrb-DqsBNU?si=iV59s_a-Xw5Tgp8H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <p style="font-size: 40%;"> Intro to the Zig Programming Language • Andrew Kelley • GOTO 2022 </p>
+  </div>
+</section>
+
+<section class="slide-gray" data-transition="fade-in fade-out">
+  <img style="width: 40%;"src="img/carbon_logo.png"/>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_carbon.png">
+  <h3>Carbon</h3>
+  <div id="left">
+    <ul style="font-size: 80%;">
+      <li class="fragment"><i class="qt-lemon">In development</i></li>
+      <li class="fragment">Succesor approach</li>
+      <li class="fragment">Interoperability (C++ ⇄ Carbon)</li>
+      <li class="fragment">Modern Generic system</li>
+      <li class="fragment"><i class="qt-mandarin">Safety strategy</i> (Migration plan)</li>
+    </ul>
+  </div>
+  <div id="right">
+    <pre style="font-size: 34%;width: 90%;"><code class="cpp" data-trim data-noescape>
+    package hello api;
+
+    fn Main() -&gt; i32 {
+      var s: auto = "Hello, world!";
+      Print(s);
+      return 0;
+    }
+    </code></pre>
+    <pre style="font-size: 50%;width: 90%;"><code class="bash" data-trim data-noescape>
+    $ ./explorer hello.carbon
+    Hello, world!
+    </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_carbon.png">
+  <h3>Carbon and C++</h3>
+  <div id="left">
+    <pre style="font-size: 30%;width: 90%;"><code class="cpp" data-trim data-noescape>
+    // C++
+    #include &lt;math.h&gt;
+    #include &lt;iostream&gt;
+    #include &lt;span&gt;
+    #include &lt;vector&gt;
+
+    struct Circle {
+      float r;
+    }
+
+    void PrintTotalArea(std::span<Circle> circles) {
+      float area = 0;
+      for (const Circle&amp; c: circles) {
+        area += M_PI * c.r * c.r;
+      }
+      std::cout &lt;&lt; "Total area: " &lt;&lt; area &lt;&lt; "\n";
+    }
+
+    auto main(int argc, char** argv) -&gt; int {
+      std::vector<Circle> circles = {{1.0}, {2.0}};
+      // Implicitly converts `vector` to `span`
+      PrintTotalArea(circles);
+      return 0;
+    }
+    </code></pre>
+  </div>
+  <div id="left">
+    <pre style="font-size: 30%;width: 95%;"><code class="cpp" data-trim data-noescape>
+    // Carbon
+    package Geometry api;
+
+    import Math;
+
+    class Circle {
+      var r: f32;
+    }
+
+    fn PrintTotalArea(circles: Slice(Circle)) {
+      var area: f32 = 0;
+      for (c: Circle in circles) {
+        area += Math.Pi * c.r * c.r;
+      }
+      Print("Total area: {0}", area);
+    }
+
+    fn Main() -&gt; i32 {
+      // A dynamically sized array, like `std::vector`.
+      var circles: Array(Circle) = ({.r = 1.0}, {.r = 2.0});
+      // Implicitly converts `Array` to `Slice`
+      PrintTotalArea(circles);
+      return 0;
+    }
+    </code></pre>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back_carbon.png">
+  <h3>Carbon - Highlights</h3>
+  <div id="left">
+  <ul style="font-size: 80%;">
+    <li class="fragment">Simpler syntax</li>
+    <li class="fragment">Safer/modern C++ succesor</li>
+    <li class="fragment"><i class="qt-lemon">Safety</i>: only way to radically change the std library</li>
+    <li class="fragment"><i class="red">Still experimental</i></li>
+  </ul>
+  </div>
+  <div class="fragment" id="right">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1ZTJ9omXOQ0?si=AHZxwXWo_OCuR-L0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <p style="font-size: 40%;">Carbon Language Successor Strategy: From C++ Interop to Memory Safety - Chandler Carruth - CppNow 23 </p>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back3.png">
+  <h3>Many other languages to check</h3>
+  <ul>
+    <li class="fragment">cppfront - <a href="https://github.com/hsutter/cppfront">github.com/hsutter/cppfront</a></li>
+    <li class="fragment">Circle - <a href="https://www.circle-lang.org">circle-lang.org</a></li>
+    <li class="fragment">Nim - <a href="https://nim-lang.org">nim-lang.org</a></li>
+    <li class="fragment">Crystal - <a href="https://crystal-lang.org/">crystal-lang.org</a></li>
+    <li class="fragment">...and many more!</li>
+  </ul>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">How should <i class="qt-neon">Qt</i></h2>
+  <h2 class="r-fit-text">look like in the <i class="qt-neon">future</i></h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Imagine a framework</h3>
+  <ul>
+    <li class="fragment">✅ Memory safe</li>
+    <li class="fragment">✅ Easy to test</li>
+    <li class="fragment">✅ Straightforward syntax</li>
+    <li class="fragment">✅ Modern Generics</li>
+    <li class="fragment">✅ Backward compatible</li>
+  </ul>
+  <p class="fragment">🤯</p>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back4.png">
+  <div id="left">
+  <h2>What can <i class="qt-neon">we</i> (*) do?</h2>
+  <p style="margin-top: 20%; font-size: 80%;">(*) Qt Project members</p>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Languages</h3>
+  <p class="quote-green">
+    Be aware of other languages, no need to be an expert.
+  </p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>API Design</h3>
+  <p class="quote-green">
+    Keep in mind other languages when new API is being
+    written down (or updated).
+  </p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Documentation</h3>
+  <p class="quote-green">
+    Try to add a general explanation of the method/class/module then
+    a more language specific one.
+  </p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Tooling</h3>
+  <p class="quote-green">
+    Get inspired by what's out there. Innovation is not always necessary.
+  </p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Outreach</h3>
+  <p class="quote-green">
+    Spreading the knowledge should be priority 1,
+    and making everything accesible priority 2.
+  </p>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back4.png">
+  <div id="left">
+  <h2>What does it mean to have <i class="qt-lemon">more languages</i> in Qt?</h2>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">More languages means</h2>
+  <h2 class="r-fit-text"><i class="qt-violet">more communities</i></h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">More languages means</h2>
+  <h2 class="r-fit-text"><i class="qt-lemon">more experience</i></h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">More languages means</h2>
+  <h2 class="r-fit-text">a <i class="qt-neon">better</i> Qt</h2>
+</section>
+
+<section data-background-image="img/worlddomination.png" data-background-opacity=1>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">Let's bring Qt</h2>
+  <h2 class="r-fit-text"><i class="qt-neon">everywhere</i></h2>
+</section>
+
+<section data-transition="fade-in fade-out" data-background-image="img/qtws_back5.png">
+  <div id="left">
+    <h1 style="font-size: 400%;"><i class="qt-neon">Q&A</i></h1>
+    <h4>The Role of Language Bindings <span style="font-weight: normal;">in the Future of the Qt Ecosystem.</span></h4>
+    <hr class="qt-line"/>
+    <p class="x80" style="font-size: 80%;">
+      Dr. <i class="qt-lemon">Cristián</i> Maureira-Fredes<br>
+      <span class="qt-neon">@cmaureir</span><br/>
+      <img class="clean-img" src="img/mastodon.png">
+      <img class="clean-img" src="img/github_white.png">
+      <img class="clean-img" src="img/linkedin.png">
+      <img class="clean-img" src="img/twitter.png">
+    </p>
+  </div>
+  <div id="rightl">
+    <div style="margin-left: 10%;">
+    </div>
+  </div>
+</section>
+
+<!--
+<section data-background-image="img/back1.jpg" data-background-opacity=1>
+</section>
+
+<section data-background-image="img/back2.jpg" data-background-opacity=1>
+</section>
+
+<section data-background-image="img/back3.jpg" data-background-opacity=1>
+</section>
+
+<section data-background-image="img/back4.jpg" data-background-opacity=1>
+</section>
+
+<section data-background-image="img/back5.jpg" data-background-opacity=1>
+</section>
+
+<section data-background-image="img/back6.jpg" data-background-opacity=1>
+</section>
+-->
+
+
+    </div>
+  </div>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="reveal.js/plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
+  </script>
+  <!-- Hack to have a footer-->
+
+  <!-- 1. Style header/footer <div> so they are positioned as desired: in css/qt.css -->
+  <!-- 2. Create hidden header/footer <div> -->
+  <div id="hidden" style="display:none;">
+    <div id="header">
+      <div id="header-left" style="margin-top: 20px; margin-left: 20px;">
+        <img style="width: 100px;" src="img/qt_white.png"/>
+      </div>
+      <div id="header-right"></div>
+      <div id="footer-left">
+        <p style="font-size: 14pt;margin-left: 20px;">
+          <!--<img class="clean-img" src="img/qt_white.png" />-->
+          <b><i class="ep-yellow">EUROPYTHON 2024</i></b> |
+          Cristián <b><i class="qt-neon">@cmaureir</i></b>
+      </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript">
+    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+    var header = $('#header').html();
+    if ( window.location.search.match( /print-pdf/gi ) ) {
+      Reveal.addEventListener( 'ready', function( event ) {
+        $('.slide-background').append(header);
+      });
+    }
+    else {
+      $('div.reveal').append(header);
+     }
+  </script>
+</body>
+</html>
