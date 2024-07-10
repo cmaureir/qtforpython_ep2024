@@ -46,8 +46,7 @@
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2 class="r-fit-text">Extending</h2>
-  <h2 class="r-fit-text">Python</h2>
+  <h2 class="r-fit-text">Extending Python</h2>
 </section>
 
 <section data-transition="fade-in fade-out">
@@ -55,55 +54,47 @@
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2 class="r-fit-text">Which language</h2>
+  <h2 class="r-fit-text">Which <i class="ep-pink">language</i></h2>
   <h2 class="r-fit-text">should we use?</h2>
 </section>
 
-<section data-transition="fade-in fade-out" data-auto-animate>
-  <div class="r-hstack justify-center">
-    <div class="fragment"><img style="width: 50%;" src="img/rust_logo.svg"/></div>
-    <div class="fragment"><img style="width: 20%;" src="img/cpp_logo.svg"/></div>
-    <div class="fragment"><img style="width: 50%;" src="img/zig_logo.svg"/></div>
-  </div>
+<section data-transition="fade-in fade-out">
+  <img class="fragment" style="width: 20%;" src="img/rust_logo.svg"/><br>
+  <img class="fragment" style="width: 20%;" src="img/cpp_logo.svg" /><br>
+  <img class="fragment" style="width: 30%;" src="img/zig_logo.svg" />
 </section>
 
 <section data-transition="fade-in fade-out">
+  <p><i class="qt-lemon">We need to talk about</i></p>
   <h2>Surveys and Indexes</h2>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Stackoverflow</h2>
-  <img src="img/stackoverflow_use.png" />
+  <img style="width: 70%;" src="img/stackoverflow_use.png" />
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Stackoverflow</h2>
-  <img src="img/stackoverflow_admire_desire.png" />
+  <img style="width: 80%;" src="img/stackoverflow_admire_desire.png" />
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Tiobe</h2>
-  <img src="img/tiobe2024.png" />
+  <img style="width: 80%;" src="img/tiobe2024.png" />
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h3>Breaking news</h3>
+  <h3><i class="qt-lemon">It seems like</i></h3>
   <h2>The world runs on C and C++</h2>
-  <p>[citation needed]</p>
+  <p style="font-size: 60%;"><i class="qt-neon">[citation needed]</i></p>
 </section>
 
 <section data-transition="fade-in fade-out">
-  Gif not be afraid
+  <img style="width: 80%;" src="img/fear.gif" />
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>NumPy</h2>
-  <img src="img/langs_numpy.png" />
-</section>
-
-<section data-transition="fade-in fade-out">
-  <h2>SciPy</h2>
-  <img src="img/langs_scipy.png" />
+  <h3><i class="red">But</i></h3>
+  <h2>C++ is <i class="qt-lemon">closer to you</i></h2>
+  <h2>than you might expect</h2>
 </section>
 
 <section data-transition="fade-in fade-out">
@@ -122,29 +113,37 @@
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>C++ has the fame to be a difficult language</h2>
+  <h2>SciPy</h2>
+  <img src="img/langs_scipy.png" />
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>but like Python it can be a simple and a complicated language</h2>
+  <h2>NumPy</h2>
+  <img src="img/langs_numpy.png" />
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h3>Python y C++</h3>
+  <h2>C++ has the <i class="qt-lemon">bad reputation</i><br> of being a <i class="red">difficult language</i></h2>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Python and C++</h3>
   <div id="left">
     <pre class="fragment" style="font-size: 38%;width: 95%;"><code class="python" data-trim data-noescape>
+    # No imports
+
+
     class Rectangle:
       def __init__(self, width: int, height: int):
-        self.width : int = width;
-        self.height : int = height;
+        self.width : int = width
+        self.height : int = height
 
       def set_values(self, x: int, y: int):
-        self.width = x;
-        self.height = y;
+        self.width = x
+        self.height = y
 
       def area(self) -&gt; int:
         return self.width * self.height
-
 
     def main():
       rect = Rectangle()
@@ -158,16 +157,16 @@
     using namespace std;
 
     class Rectangle {
-        int width, height;
       public:
-        void set_values (int,int);
-        int area() {return width*height;}
+        int width, height;
+        void set_values(int x, int y) {
+          width = x;
+          height = y;
+        }
+        int area() {
+          return width*height;
+        }
     };
-
-    void Rectangle::set_values(int x, int y) {
-      width = x;
-      height = y;
-    }
 
     int main () {
       Rectangle rect;
@@ -180,7 +179,7 @@
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h3>La cercanía de C++ con Python (1/4)</h3>
+  <h3>C++ is closer to Python (1/4)</h3>
   <pre style="font-size: 50%;width: 95%;"><code class="cpp" data-trim data-noescape>
   #include &lt;string&gt;
 
@@ -190,37 +189,37 @@
 
   int main()
   {
-    auto a = 1 + 2;  // a will is an int
+    auto a = 1 + 2;     // a is an int
     auto b = add(1, 2); // b is a float
-    auto n = {5};  // n is a std::initializerlist&lt;int&gt;
-    auto s1 = "hello"; // s1 is a const char *
+    auto n = {5};       // n is a std::initializerlist&lt;int&gt;
+    auto s1 = "hello";  // s1 is a const char *
     auto s2 = "hello"s; // s2 is a std::string
 
     return 0;
   }
   </code></pre>
-  <p><code><i class="qt-lemon">auto</i></code> desde C++14</p>
+  <p><code><i class="qt-lemon">auto</i></code> since C++11</p>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h3>La cercanía de C++ con Python (2/4)</h3>
+  <h3>C++ is closer to Python (2/4)</h3>
   <pre style="font-size: 60%;width: 95%;"><code class="cpp" data-trim data-noescape>
   #include &lt;iostream&gt;
   #include &lt;ranges&gt;
 
   int main()
   {
-    auto const ints = {0, 1, 2, 3, 4, 5};
-    for (int i : ints);
+    auto values = {0, 1, 2, 3, 4, 5};
+    for (auto i : values)
         std::cout &lt;&lt; i &lt;&lt; ' ';
     return 0;
   }
   </code></pre>
-  <p><code><i class="qt-lemon">ranges</i></code> desde C++20</p>
+  <p><code><i class="qt-lemon">ranges</i></code> since C++20</p>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h3>La cercanía de C++ con Python (3/4)</h3>
+  <h3>C++ is closer to Python (3/4)</h3>
   <pre style="font-size: 55%;width: 95%;"><code class="cpp" data-trim data-noescape>
   #include &lt;iostream&gt;
   #include &lt;ranges&gt;
@@ -231,16 +230,17 @@
 
     for (auto const [index, letter] : std::views::enumerate(v))
       std::cout &lt;&lt; '(' &lt;&lt; index &lt;&lt; ':' &lt;&lt; letter &lt;&lt; ") ";
+
     std::cout &lt;&lt; '\n';
 
     return 0;
   }
   </code></pre>
-  <p><code><i class="qt-lemon">std::view::enumerate</i></code> desde C++23</p>
+  <p><code><i class="qt-lemon">std::view::enumerate</i></code> since C++23</p>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h3>La cercanía de C++ con Python (4/4)</h3>
+  <h3>C++ is closer to Python (4/4)</h3>
   <pre style="font-size: 60%;width: 95%;"><code class="cpp" data-trim data-noescape>
   #include &lt;print&gt;
 
@@ -250,11 +250,12 @@
     return 0;
   }
   </code></pre>
-  <p><code><i class="qt-lemon">std::print</i></code> desde C++23</p>
+  <p><code><i class="qt-lemon">std::print</i></code> since C++23</p>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Do you still believe Python is simpler?</h2>
+  <p><i class="qt-lemon">Even with these examples</i></p>
+  <h2>Who thinks Python <i class="qt-neon">is simpler</i>?</h2>
 </section>
 
 <section data-transition="fade-in fade-out">
@@ -313,59 +314,225 @@
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>What's the deal with Qt</h2>
+  <h2>Languages can be both<br><i class="qt-lemon">Simple</i> and <i class="red">Complicated</i></h2>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Like, Python, Qt is around since early '90s</h2>
+  <p><i class="qt-lemon">OK, but...</i></p>
+  <h2>What's the deal with <i class="qt-neon">Qt</i></h2>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>It shares a few of the initial ideals with Python</h2>
+  <h2>Like <i class="qt-lemon">Python</i>,<br><i class="qt-neon">Qt</i> is around since<br><i class="qt-lemon">the early '90s</i></h2>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Simple, useful, batteries included.</h2>
+  <p><i class="qt-lemon">Both shares similar goals:</i></p>
+  <h2>Simple, useful and batteries included.</h2>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>All the areas/icons Qt is around.</h2>
+    <h3>Qt Essentials</h3>
+    <table class="available" style="color: black;">
+    <tr>
+      <td class="found">Core</td>
+      <td class="found">D-Bus</td>
+      <td class="found">GUI</td>
+      <td class="found">Network</td>
+    </tr>
+    <tr>
+      <td class="found">QML</td>
+      <td class="found">Quick</td>
+      <td class="found">Quick Controls</td>
+      <td class="found">Quick Dialogs</td>
+    </tr>
+    <tr>
+      <td class="found">Quick Layouts</td>
+      <td class="found">Quick Test</td>
+      <td class="found">Test</td>
+      <td class="found">Widgets</td>
+    </tr>
+    </table>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Thanks the for info..but we are at EuroPython?</h2>
+    <h3>Qt Add-ons</h3>
+    <table class="available" style="font-size: 55%; color: black;">
+    <tr>
+      <td class="found">Active Qt</td>
+      <td class="found">3D</td>
+      <td class="found">Bluetooth</td>
+      <td class="found">Concurrent</td>
+    </tr>
+    <tr>
+      <td class="found">Help</td>
+      <td class="found">Image Formats</td>
+      <td class="found">Multimedia</td>
+      <td class="found">NFC</td>
+    </tr>
+    <tr>
+      <td class="found">OPC UA</td>
+      <td class="found">OpenGL</td>
+      <td class="found">PDF</td>
+      <td class="found">Positioning</td>
+    </tr>
+    <tr>
+      <td class="found">Print Support</td>
+      <td class="found">Quick Widgets</td>
+      <td class="found">Quick Effects</td>
+      <td class="found">Quick Particles</td>
+    </tr>
+    <tr>
+      <td class="found">Remote Objects</td>
+      <td class="found">SCXML</td>
+      <td class="found">Sensors</td>
+      <td class="found">Serial Bus</td>
+    </tr>
+    <tr>
+      <td class="found">Serial Port</td>
+      <td class="found">Shader Tools</td>
+      <td class="found">SpatialAudio</td>
+      <td class="found">SQL</td>
+    </tr>
+    <tr>
+      <td class="found">StateMachine</td>
+      <td class="found">SVG</td>
+      <td class="found">TextToSpeech</td>
+      <td class="found">UI Tools</td>
+    </tr>
+    <tr>
+      <td class="found">WebChannel</td>
+      <td class="found">WebEngine</td>
+      <td class="found">WebSockets</td>
+      <td class="found">WebView</td>
+    </tr>
+    <tr>
+      <td class="found">XML</td>
+      <td class="found">Charts</td>
+      <td class="found">CoAP</td>
+      <td class="found">Data Visualization</td>
+    </tr>
+    <tr>
+      <td class="found">Lottie Animation</td>
+      <td class="found">MQTT</td>
+      <td class="found">Network Authorization</td>
+      <td class="found">Quick 3D</td>
+    </tr>
+    <tr>
+      <td class="found">Quick 3D Physics</td>
+      <td class="found">Quick Timeline</td>
+      <td class="found">Virtual Keyboard</td>
+      <td class="found">Wayland Compositor</td>
+    </tr>
+    <tr>
+      <td class="found">HTTP Server</td>
+      <td class="found">Protobuf</td>
+      <td class="found">Graphs</td>
+      <td class="found">GRPC</td>
+    </tr>
+    <tr>
+      <td class="found">Qt OpCUA</td>
+      <td class="found">Qt MQTT</td>
+      <td class="found">Qt CoAP</td>
+      <td class="found">Location</td>
+    </tr>
+    <tr>
+      <td class="found">Qt Automotive Suite</td>
+      <td class="found">Qt for MCU</td>
+      <td class="found">Qt for Device Creation</td>
+    </tr>
+  </table>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <p>Short story about</p>
-  <h2>PyQt and PySide</h2>
+  <p><i class="ep-pink">Thanks the for info</i></p>
+  <h2>but we are at Euro<i class="qt-lemon">Python</i>?</h2>
+  <p class="fragment"><i class="qt-neon">Qt has Python bindings 🎉</i></p>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>PyQt and PySide table</h2>
+  <div id="left">
+    <h2>PySide</h2>
+    <ul style="font-size: 80%;">
+      <li class="fragment" data-fragment-index="2"><i class="qt-neon">LGPLv3</i>/Commercial</li>
+      <li class="fragment" data-fragment-index="3">Developed by <i class="qt-lemon">The Qt Company</i></li>
+      <li class="fragment" data-fragment-index="4">Support Windows, macOS and Linux.</li>
+      <li class="fragment" data-fragment-index="5">Support for Android + Deployment</li>
+      <li class="fragment" data-fragment-index="6">Exposes Qt API<i class="qt-neon"> and more</i>.</li>
+    </ul>
+  </div>
+  <div id="rightl">
+    <h2>PyQt</h2>
+    <ul style="font-size: 80%;">
+      <li class="fragment" data-fragment-index="2">GPLv3/Commercial</li>
+      <li class="fragment" data-fragment-index="3">Developed by <i class="qt-lemon">Riverbank Co.</i></li>
+      <li class="fragment" data-fragment-index="4">Support Windows, macOS and Linux.</li>
+      <li class="fragment" data-fragment-index="5">Support for Android + Deployment</li>
+      <li class="fragment" data-fragment-index="6">Exposes Qt API.</li>
+    </ul>
+  </div>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>PySide's extra mile</h2>
+  <h2>What's <i class="qt-lemon">and more</i> ?</h2>
+  <p class="fragment">You are only one<br><code class="qt-lemon">pip install pyside6</code><br>away to discover it</p>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>New API</h2>
-  PySide broke Qt API compatibility in order
-  to enable other projects to use functionality easily
+  <div id="left">
+  <h2>New ad-hoc API</h2>
+  <br>
+  PySide <i class="qt-neon">extends the Qt API</i> in order
+  to enable other projects to use functionality easily.
+  </div>
+  <div id="right">
+    <img style="width: 80%;" src="img/qt_api.png"/>
+  </div>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Numpy Support</h2>t
-  Accept numpy arrays wherever we accept a Python Sequence
+  <div id="left">
+    <img style="width: 80%;" src="img/numpy.svg"/>
+  </div>
+  <div id="right">
+  <h2>Numpy Support</h2>
+  <br>
+  Accept <i class="qt-neon">numpy arrays</i> wherever we accept a Python Sequence
+  </div>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Tooling (start project)</h2>
+  <h2>Tooling to manage projects</h2>
+  <pre style="font-size: 30%;width: 90%;"><code class="bash" data-trim data-noescape>
+% pyside6-project -h
+usage: project.py [-h] [--quiet] [--dry-run] [--force] [--qml-module]
+                  {build,run,clean,qmllint,deploy,lupdate,new-quick,new-ui,new-widget} [file]
+
+positional arguments:
+  {build,run,clean,qmllint,deploy,lupdate,new-quick,new-ui,new-widget}
+                        build    Builds the project
+                        run        Builds the project and runs the first file
+                        clean      Cleans the build artifacts
+                        qmllint    Runs the qmllint tool
+                        deploy     Deploys the application
+                        lupdate    Updates translation (.ts) files
+                        new-ui     Creates a new QtWidgets project with a Qt Designer-based main window
+                        new-widget Creates a new QtWidgets project with a main window
+                        new-quick  Creates a new QtQuick project
+  file                  Project file
+
+options:
+  -h, --help            show this help message and exit
+  --quiet, -q           Quiet
+  --dry-run, -n         Only print commands
+  --force, -f           Force rebuild
+  --qml-module, -Q      Perform check for QML module
+  </code></pre>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Tooling (deploy project)</h2>
+  <h2>Tooling: Deployment</h2>
+  <video muted data-autoplay style="width: 95%;" src="video/pyside6_deploy_2024.mp4"></video>
 </section>
 
 <section data-transition="fade-in fade-out">
@@ -387,7 +554,7 @@
     layout.addWidget(button)
     </code></pre>
   </div>
-  <div id="right">
+  <div id="right" class="fragment">
     <pre style="font-size: 60%;width: 90%;"><code class="python" data-trim data-noescape>
     from __feature__ import (
       snake_case, true_property
@@ -408,13 +575,7 @@
 
 <section data-transition="fade-in fade-out">
   <div id="left">
-    <ul>
-      <li class="fragment">Compatible since 6.3.0</li>
-      <li class="fragment">compilador JIT</li>
-      <li class="fragment">~5x más rápido</li>
-      <li class="fragment">Modo stackless (micro-threads)</li>
-      <li class="fragment"><a href="https://pypy.org">pypy.org</a></li>
-    </ul>
+    <img src="img/pypy_tweet.png"/>
   </div>
   <div id="right">
     <img src="img/logo_pypy.svg"/>
@@ -422,18 +583,24 @@
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>arm64</h2>
-  <ul>
-    <li class="fragment">Universal binaries wheel (macOS)</li>
-    <li class="fragment">Packages for aarch64 (Linux)</li>
-    <li class="fragment">Researh on Windows ARM64</li>
-  </ul>
+  <h2>arm64 packages</h2>
+  <div id="left">
+    <img src="img/chip.png"/>
+  </div>
+  <div id="right">
+    <br>
+    <br>
+    <ul>
+      <li class="fragment">Universal binaries wheel (macOS)</li>
+      <li class="fragment">Packages for aarch64 (Linux)</li>
+      <li class="fragment">Researh on Windows ARM64</li>
+    </ul>
+  </div>
 </section>
 
 <section data-transition="fade-in fade-out">
   <h2>Android support</h2>
-  Video or screenshot of an app on Desktop and Android.
-  Mention python-for-android (from kivy)
+  <video muted data-autoplay style="width: 95%;" src="video/camera_pyside.webm"></video>
 </section>
 
 <section data-transition="fade-in fade-out">
@@ -442,49 +609,127 @@
 
 <section data-transition="fade-in fade-out">
   <div id="left">
-  <h3>Kivy</h3>
+    <img style="width: 30%;" src="img/Kivy_logo.png"/>
+    <h3>Kivy</h3>
+    <ul style="width: 80%;">
+      <li>kivy.org</li>
+      <li>Android, iOS, Linux, macOS and Windows. </li>
+      <li>MIT License</li>
+    </ul>
   </div>
   <div id="right">
-  <pre style="font-size: 65%; width: 90%;"><code class="python" data-trim data-noescape>
-  ...
+  <pre style="font-size: 40%; width: 90%;"><code class="python" data-trim data-noescape>
+from kivy.app import App
+from kivy.uix.button import Button
+
+class TestApp(App):
+
+  def build(self):
+    button = Button(text='Hello World')
+    button.bind(on_press=self.callback)
+    return button
+
+  def callback(self, instance):
+    print(instance.text)
+
+TestApp().run()
   </code></pre>
   </div>
 </section>
 
 <section data-transition="fade-in fade-out">
   <div id="left">
-  <h3>Flet</h3>
+    <img style="width: 30%;" src="img/flet_logo.svg"/>
+    <h3>Flet</h3>
+    <ul style="width: 80%;">
+      <li>flet.dev</li>
+      <li>Android, iOS, Linux, macOS and Windows. </li>
+      <li>Apache 2.0 License</li>
+    </ul>
   </div>
   <div id="right">
-  <pre style="font-size: 65%; width: 90%;"><code class="python" data-trim data-noescape>
-  ...
+  <pre style="font-size: 40%; width: 90%;"><code class="python" data-trim data-noescape>
+import flet as ft
+
+def main(page: ft.Page):
+    page.add(
+      ft.SafeArea(
+        ft.Text("Hello, Flet!")
+      )
+    )
+
+ft.app(main)
   </code></pre>
   </div>
 </section>
 
 <section data-transition="fade-in fade-out">
   <div id="left">
-  <h3>Toga</h3>
+    <img style="width: 30%;" src="img/toga_logo.png"/>
+    <h3>Toga</h3>
+    <ul style="width: 80%;">
+      <li>beeware.org</li>
+      <li>Windows, macOS, and Linux. (*)</li>
+      <li>BSD-3 Clause license</li>
+    </ul>
   </div>
   <div id="right">
-  <pre style="font-size: 65%; width: 90%;"><code class="python" data-trim data-noescape>
-  ...
+  <pre style="font-size: 40%; width: 90%;"><code class="python" data-trim data-noescape>
+from toga import Button, App
+
+def callback(widget):
+    print("hello")
+
+def build(app):
+    button = Button('Hello world',
+                    on_press=callback)
+    return button
+
+App(startup=build).main_loop()
   </code></pre>
   </div>
 </section>
 
 <section data-transition="fade-in fade-out">
-  Comparison table (licenses, platform, and python version)
+  <div id="left">
+    <img style="width: 30%;" src="img/qtforpython_neon.png"/>
+    <h3>PySide6</h3>
+    <ul style="width: 80%;">
+      <li>doc.qt.io/qtforpython</li>
+      <li>Windows, macOS, Linux, and Android</li>
+      <li>LGPLv3 License</li>
+    </ul>
+  </div>
+  <div id="right">
+  <pre style="font-size: 40%; width: 90%;"><code class="python" data-trim data-noescape>
+from PySide6.QtWidgets import (
+  QApplication, QLabel
+)
+
+app = QApplication()
+label = QLabel("Hello World")
+label.show()
+app.exec()
+  </code></pre>
+  </div>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>How are the binding generated</h2>
+  <h3><i class="qt-lemon">But</i></h3>
+  <h2>How are the binding generated?</h2>
+</section>
+
+<section data-transition="fade-in fade-out">
   <img src="img/proceso_bindings.png" />
 </section>
 
 <section data-transition="fade-in fade-out">
   <h3>Generation process</h3>
   <img style="width: 90%; background: 0; border: 0;" src="img/shiboken_process_dark.png" />
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Let's look a <i class="qt-lemon">couple of examples</i></h3>
 </section>
 
 <section data-transition="fade-in fade-out" data-background-image="img/18.png">
@@ -540,140 +785,82 @@
   $ cmake --build build
   $ cmake --install build
   </code></pre>
+  <p style="font-size: 50%; margin-right: 25px">doc.qt.io/qtforpython-6/shiboken6/index.html</p>
   </div>
 </section>
 
 <section>
-  <h3>Summary</h3>
-  <table style="width:100%;font-size: 65%;">
-  <tr>
-    <th></th>
-    <th><i class="blue">Type</i></th>
-    <th><i class="blue">C++</i></th>
-    <th><i class="blue">Python</i></th>
-    <th><i class="blue">License</i></th>
-    <th><i class="blue">Support</i></th>
-  </tr>
-  <tr>
-    <td><i class="yellow">boost::python</i></td>
-    <td>Interface</td>
-    <td>C++11<i class="yellow">+</i></td>
-    <td>2.7, 3.0</td>
-    <td>BSL-1</td>
-    <td>Boost</td>
-  </tr>
-  <tr>
-    <td><i class="yellow">SWIG</i></td>
-    <td>Code gen</td>
-    <td>C++11<i class="yellow">+</i></td>
-    <td>1.5+</td>
-    <td>GPL3</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td><i class="green">shiboken</i></td>
-    <td>Code gen</td>
-    <td>C++11 (*)</td>
-    <td>2.7, 3.5+</td>
-    <td>LGPLv3</td>
-    <td>Qt</td>
-  </tr>
-  <tr>
-    <td><i class="yellow">sip</i></td>
-    <td>Code gen</td>
-    <td>C++11 (*)</td>
-    <td>3.5+</td>
-    <td>GPLv3</td>
-    <td>Riverbank</td>
-  </tr>
-  <tr>
-    <td><i class="yellow">pyBind11</i></td>
-    <td>Interface</td>
-    <td>C++11 (*)</td>
-    <td>2.7, 3.x</td>
-    <td>BSD-3</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td><i class="yellow">nanobind</i></td>
-    <td>Interface</td>
-    <td>C++14<i class="yellow">+</i></td>
-    <td>3</td>
-    <td>-</td>
-    <td>-</td>
-  </tr>
-  </table>
+  <h3>there are many more</h3>
+  <ul>
+    <li><i class="qt-neon">SWIG</i> - swig.org</li>
+    <li><i class="qt-neon">boost::python</i> - boostorg.github.io/python</li>
+    <li><i class="qt-neon">SIP</i> - github.com/Python-SIP/sip</li>
+    <li><i class="qt-neon">nanobind</i> - github.com/wjakob/nanobind</li>
+  </ul>
+  <p><i class="qt-lemon">Check them out!</i></p>
 </section>
 
 <section data-transition="fade-in fade-out">
+  <h3><i class="qt-lemon">a few</i></h3>
   <h2>Technical details</h2>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h3>Limited API</h3>
-  <ul>
-    <li>Avoid dependency with one Python version (cp36-abi3)</li>
-    <li>No special C-API depending on the version (*)</li>
-    <li>Reduce release overhead</li>
-  </ul>
-</section>
-
-<section data-transition="fade-in fade-out">
-  <h3>Build system</h3>
-  <h3>Packaging</h3>
-</section>
-
-<section data-transition="fade-in fade-out">
-  Reference to the talks by the pybind11 guy
-</section>
-
-<section data-transition="fade-in fade-out">
-  <h3>Example: C++ to Python</h3>
   <div id="left">
-  <pre style="font-size: 65%; width: 90%;"><code class="cpp" data-trim data-noescape>
-  // test.cpp
-  #include &lt;test.hpp&gt;
-
-  int add(int i, int j) {
-      return i + j;
-  }
-
-  </code></pre>
-  <pre style="font-size: 65%; width: 90%;"><code class="cpp" data-trim data-noescape>
-  // test.hpp
-  int add(int i, int j);
-  </code></pre>
+  <h3>Limited API Compatibility</h3>
+  <ul style="font-size:80%;">
+    <li>Avoid dependency with one Python version (<code>cp36-abi3</code>)</li>
+    <li>Stable ABI</li>
+    <li>Reduce release overhead 😮‍💨</li>
+  </ul>
   </div>
   <div id="right">
-  <pre style="font-size: 40%; width: 90%;"><code class="xml" data-trim data-noescape>
-    &lt;!-- bindings.xml --&gt;
-    &lt;?xml version="1.0"?&gt;
-    &lt;typesystem package="simple"&gt;
-        &lt;function signature="add(int, int)"/&gt;
-    &lt;/typesystem&gt;
-  </code></pre>
-  <pre style="font-size: 50%; width: 90%;"><code class="bash" data-trim data-noescape>
-  $ cmake -S . -B build
-  $ cmake --build build
-  $ cmake --install build
-  </code></pre>
+    <br>
+    <img src="img/stinner.png" />
   </div>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Example: Python app (widgets)</h2>
+  <h3>Build system & Packaging</h3>
+  <h2 class="fragment">🥲</h2>
 </section>
 
 <section data-transition="fade-in fade-out">
-  <h2>Example: Python app (QML)</h2>
+  <div id="left">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/gROGDQakzas?si=Qb_Qn4iteED5R03M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <div id="right">
+    <ul style="font-size: 80%;">
+      <li>Check the last two talks from Henry Fredrick Schreiner III (PyConUS23/24)</li>
+      <li>or other pybind11, scikit-build talks.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3 class="r-fit-text">So what can be done with</h3>
+  <h3 class="r-fit-text"><i class="qt-neon">Qt for Python</i></h3>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Example: Python app (widgets)</h3>
+  <video muted data-autoplay style="width: 55%;" src="video/widgets-tetrix.mp4"></video>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Example: Python app (QML)</h3>
+  <img style="width: 90%;" src="img/extendedexplorer.gif"/>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Example: Python app (QML)</h3>
+  <video muted data-autoplay style="width: 95%;" src="video/car.mp4"></video>
 </section>
 
 <section data-transition="fade-in fade-out">
   <h4>Example: Hybrid Applications (Python and C++)</h3>
   <p style="font-size: 80%;">Embedding <i class="qt-lemon">Python</i> into a <i class="qt-neon">Qt/C++</i> application</p>
   <img style="width: 80%; background: 0; border: 0;" src="img/scriptableapplication.gif" />
-  <p style="font-size: 50%;">The Text editor interprets Python code to <i class="qt-mandarin">access</i> the Qt/C++ application to <i class="qt-mandarin">modify it</i>.</p>
-  <p style="font-size: 60%;">★ Check the <a href="https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/scriptableapplication">scriptableapplication</a> example</p>
 </section>
 
 <section data-transition="fade-in fade-out">
@@ -681,20 +868,12 @@
 </section>
 
 <section data-transition="fade-in fade-out">
-  Real application showcase.
-</section>
-
-<section data-transition="fade-in fade-out">
-  Where is Qt (public use cases)
-</section>
-
-<section data-transition="fade-in fade-out">
+  <h3>What now?</h3>
   <ul>
     <li><i class="qt-lemon">Telegram</i> <a href="https://t.me/qtforpython">t.me/qtforpython</a></li>
-     <li>Wiki page <a href="https://pyside.org">pyside.org</a></li>
-     <li>Official docs <a href="https://doc.qt.io/qtforpython">doc.qt.io/qtforpython</a></li>
+    <li>Wiki page <a href="https://pyside.org">pyside.org</a></li>
+    <li>Official docs <a href="https://doc.qt.io/qtforpython">doc.qt.io/qtforpython</a></li>
   </ul>
-  More platforms at <a href="https://wiki.qt.io/Qt_for_Python#Community">wiki.qt.io/Qt_for_Python#Community</a>
 </section>
 
 <section data-background-image="img/qtws_back1.png">
